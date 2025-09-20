@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday, My Love!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffecd2 0%, #ddc3bb 100%);
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 60px 20px 20px 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .flame {
+            animation: flameFlicker 1s infinite alternate, flameGlow 1.2s infinite alternate;
+            box-shadow: 0 0 24px 8px #fff8b0, 0 0 60px 20px #ffb34766;
+        }
+        @keyframes flameGlow {
+            0% { box-shadow: 0 0 24px 8px #fff8b0, 0 0 60px 20px #ffb34766; opacity: 0.95; }
+            50% { box-shadow: 0 0 40px 16px #fff8b0, 0 0 80px 32px #ffb34799; opacity: 1; }
+            100% { box-shadow: 0 0 24px 8px #fff8b0, 0 0 60px 20px #ffb34766; opacity: 0.92; }
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3em;
+            color: #ff5e62;
+            margin-bottom: 0.2em;
+            text-shadow: 2px 2px 8px #fff6;
+            animation: popIn 1s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .heart {
+            color: #db0a0a;
+            font-size: 2.5em;
+            animation: heartbeat 1.2s infinite;
+            margin-bottom: 1em;
+            display: inline-block;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1);}
+            20% { transform: scale(1.2);}
+            40% { transform: scale(0.95);}
+            60% { transform: scale(1.1);}
+            80% { transform: scale(0.98);}
+        }
+        .message {
+            font-size: 1.4em;
+            color: #ff5e62;
+            background: linear-gradient(135deg, #fff0f5 60%, #ffe0e9 100%);
+            border: 2px solid #ffb6b9;
+            box-shadow: 0 8px 32px #ffb6b9cc, 0 1.5px 0 #fff inset;
+            border-radius: 30px 10px 30px 10px/10px 30px 10px 30px;
+            padding: 28px 38px;
+            letter-spacing: 1.2px;
+            word-spacing: 2px;
+            line-height: 1.7;
+            font-family: 'Pacifico', cursive;
+            text-shadow: 1px 1px 8px #fff8, 0 2px 2px #ffb6b966;
+            position: relative;
+            transition: box-shadow 0.3s;
+            display: inline-block;
+            margin-bottom: 2em;
+            animation: fadeIn 2s;
+        }
+        .message::before, .message::after {
+            content: "💖";
+            position: absolute;
+            font-size: 1.2em;
+            opacity: 0.7;
+        }
+        .message::before {
+            left: 18px;
+            top: 10px;
+            transform: rotate(-15deg);
+        }
+        .message::after {
+            right: 18px;
+            bottom: 10px;
+            transform: rotate(10deg);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @media (max-width: 600px) {
+            .message {
+                font-size: 1em;
+                padding: 16px 10px;
+            }
+        }
+        .cake {
+            margin: 40px auto 0 auto;
+            width: 180px;
+            height: 220px;
+            position: relative;
+            z-index: 2;
+            animation: popIn 1.2s 0.5s backwards;
+        }
+        .cake-base {
+            width: 180px;
+            height: 80px;
+            background: #fff0f5;
+            border-radius: 0 0 90px 90px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            box-shadow: 0 8px 32px #ffb6b9aa;
+            border: 4px solid #ffb6b9;
+        }
+        .cake-layer {
+            width: 140px;
+            height: 60px;
+            background: #ffe0e9;
+            border-radius: 0 0 70px 70px;
+            position: absolute;
+            left: 20px;
+            bottom: 60px;
+            border: 4px solid #ffb6b9;
+        }
+        .cake-top {
+            width: 100px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50px 50px 40px 40px;
+            position: absolute;
+            left: 40px;
+            bottom: 110px;
+            border: 4px solid #f2ffb6;
+        }
+        .candle {
+            width: 12px;
+            height: 40px;
+            background: #ffb6b9;
+            border-radius: 6px;
+            position: absolute;
+            left: 84px;
+            bottom: 140px;
+            z-index: 2;
+            box-shadow: 0 0 8px #ffb6b9;
+        }
+        .flame {
+            width: 18px;
+            height: 28px;
+            background: radial-gradient(ellipse at center, #fff8b0 60%, #ffb347 100%);
+            border-radius: 50% 50% 60% 60%;
+            position: absolute;
+            left: 81px;
+            bottom: 165px;
+            z-index: 3;
+            animation: flameFlicker 1s infinite alternate;
+            opacity: 0.95;
+        }
+        @keyframes flameFlicker {
+            0% { transform: scaleY(1) scaleX(1);}
+            50% { transform: scaleY(1.1) scaleX(0.95);}
+            100% { transform: scaleY(0.95) scaleX(1.05);}
+        }
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .footer {
+            margin-top: 40px;
+            color: #ff5e62;
+            font-family: 'Pacifico', cursive;
+            font-size: 1.2em;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas class="confetti"></canvas>
+    <div class="container">
+        <div class="heart">❤️</div>
+        <h1>Happy Birthday Day!</h1>
+        <h1>My  >❤️ Khansa</h1>
+        <div class="message">
+         Khansa, Tum meri zindagi ho <br>Meri pehli or aakhri mohabbat ho❤️ <br>  -->❤️<--  <br>Mere liye tum sirf Birthday pr hi nhi  <br>har ek din khaas ho, sukoon ka ehsaas ho❤️<br>-->❤️<--  <br>
+         Meri baatein jhuti ho sakti hai, lekin <br>Tumhara chehra dekhte hi mera khushi❤️ <br>Tumse milne ke baad ka shanti or sukoon❤️ <br>Tumse gale milne ke baad ek apna pan❤️ <br>Tumhare saath zindagi bitane ka khwaish❤️ <br>Ye saare ehsaas jhute nhi ho sakte❤️ <br> -->❤️<-- <br> Mera dil laga nhi kahi tumse lagne ke baad <br>Tumhare baad koi pasand aaya hi nhi❤️ <br> -->❤️<-- <br> At the end "HAPPY BIRTHDAY" Mohtarma <br>Tum hi ko banna hai mere baccho ki "Amma"❤️
+            <br>
+         
+        <div class="cake">
+            <div class="cake-base"></div>
+            <div class="cake-layer"></div>
+            <div class="cake-top"></div>
+            <div class="candle"></div>
+            <div class="flame"></div>
+        </div>
+        <div class="footer">Your Butterscotch + Strawberry cake <br>
+            Happy Birthday Khansa 💕 <br> -->💕<-- <br>💕 Choose Your Gift💕 <br> 1. Dress💕 <br> 2.Treat in (KFC, Domino's or PIzza Hut)💕 <br> 3. Make your own wish💕 <br> -->💕<--  <br> Happy Birthday 💕 <br> 21.09.2005.
+        </div>
+    </div>
+    <script>
+        // Confetti animation
+        const canvas = document.querySelector('.confetti');
+        const ctx = canvas.getContext('2d');
+        let W = window.innerWidth, H = window.innerHeight;
+        canvas.width = W;
+        canvas.height = H;
+        const confettiColors = [
+            '#ffb6b9','#fae3d9','#bbded6','#8ac6d1',
+            '#ff5e62','#fcb69f','#fff0f5','#ffe0e9'
+        ];
+        const confettiCount = 120;
+        const confetti = [];
+        function randomBetween(a, b) {
+            return a + Math.random() * (b - a);
+        }
+        function Confetto() {
+            this.x = randomBetween(0, W);
+            this.y = randomBetween(-H, 0);
+            this.r = randomBetween(6, 14);
+            this.d = randomBetween(2, 8);
+            this.color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+            this.tilt = randomBetween(-10, 10);
+            this.tiltAngleIncremental = randomBetween(0.05, 0.12);
+            this.tiltAngle = 0;
+            this.opacity = randomBetween(0.7, 1);
+        }
+        for(let i=0; i<confettiCount; i++) {
+            confetti.push(new Confetto());
+        }
+        function drawConfetti() {
+            ctx.clearRect(0, 0, W, H);
+            for(let i=0; i<confettiCount; i++) {
+                let c = confetti[i];
+                ctx.beginPath();
+                ctx.lineWidth = c.r;
+                ctx.strokeStyle = c.color;
+                ctx.globalAlpha = c.opacity;
+                ctx.moveTo(c.x + c.tilt + c.r/3, c.y);
+                ctx.lineTo(c.x + c.tilt, c.y + c.d + c.r/3);
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+            updateConfetti();
+            requestAnimationFrame(drawConfetti);
+        }
+        function updateConfetti() {
+            for(let i=0; i<confettiCount; i++) {
+                let c = confetti[i];
+                c.y += (Math.cos(c.d) + 2 + c.r/6) * 0.8;
+                c.x += Math.sin(0.01 * c.y) * 2;
+                c.tiltAngle += c.tiltAngleIncremental;
+                c.tilt = Math.sin(c.tiltAngle) * 15;
+                if(c.y > H + 20) {
+                    confetti[i] = new Confetto();
+                    confetti[i].x = randomBetween(0, W);
+                    confetti[i].y = -10;
+                }
+            }
+        }
+        drawConfetti();
+        window.addEventListener('resize', () => {
+            W = window.innerWidth;
+            H = window.innerHeight;
+            canvas.width = W;
+            canvas.height = H;
+        });
+    </script>
+</body>
+</html>
